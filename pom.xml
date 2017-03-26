@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <parent>
+        <groupId>com.tugmodel</groupId>
+        <artifactId>tugmodel-parent</artifactId>
+        <version>1.0.0.0</version>
+    </parent>
+
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>tugmodel-tugs</artifactId>
+    <name>tugmodel-tugs</name>
+    <packaging>pom</packaging>
+
+	<profiles>
+      <profile>
+         <id>buildChilds</id>
+         <activation>
+            <property>
+            	<name>buildChilds</name>
+			</property>
+            <!-- Do not use activeByDefault when doing changes in pom because the parent needs to get 
+            installed in the repository first without building all the childrens. 
+            <activeByDefault>true</activeByDefault>
+            -->            
+         </activation>
+         <modules>
+            <module>../tugmodel-tugs-base</module>
+         </modules>
+      </profile>
+   </profiles>
+</project>
